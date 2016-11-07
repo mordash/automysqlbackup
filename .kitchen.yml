@@ -1,0 +1,58 @@
+---
+driver:
+  name: docker
+  hostname: automysqlbackup
+  privileged: true
+  use_sudo: false
+  cap_add:
+    - ALL
+
+provisioner:
+  name: ansible_playbook
+  idempotency_test: true
+  require_ansible_repo: false
+  require_chef_for_busser: false
+  require_ruby_for_busser: true
+  ansible_verbose: false
+  ansible_verbosity: 2
+
+  ansible_extra_flags: <%= ENV['ANSIBLE_EXTRA_FLAGS'] %>
+  hosts: localhost
+
+platforms:
+
+  - name: ubuntu-14.04-2.1
+    driver_config:
+      image: hub.alterway.fr/kitchen-ansible:trusty-2.1
+
+  - name: debian-7-2.1
+    driver_config:
+      image: hub.alterway.fr/kitchen-ansible:wheezy-2.1
+
+  - name: debian-8-2.1
+    driver_config:
+      image: hub.alterway.fr/kitchen-ansible:jessie-2.1
+
+  - name: ubuntu-16.04-2.1
+    driver_config:
+      image: hub.alterway.fr/kitchen-ansible:xenial-2.1
+
+  - name: centos-7-2.1
+    driver_config:
+      image: hub.alterway.fr/kitchen-ansible:centos7-2.1
+      run_command: /usr/sbin/init
+    verifier:
+      ruby_bindir: '/usr/local/bin'
+
+verifier:
+  ruby_bindir: '/usr/bin'
+
+suites:
+
+  - name: empty
+    provisioner:
+      playbook: test/integration/empty.yml
+
+  - name: cron
+    provisioner:
+      playbook: test/integration/cron.yml

@@ -1,0 +1,19 @@
+---
+automysqlbackup_dbhost: 'localhost'
+automysqlbackup_backupdir: "/var/lib/automysqlbackup"
+automysqlbackup_mailcontent: 'quiet'
+automysqlbackup_maxattsize: '4000'
+automysqlbackup_mailaddr: 'root'
+automysqlbackup_mdbnames: "mysql $DBNAMES"
+automysqlbackup_dbexclude: ""
+automysqlbackup_create_database: 'yes'
+automysqlbackup_sepdir: 'yes'
+automysqlbackup_doweekly: '6'
+automysqlbackup_comp: 'gzip'
+automysqlbackup_commcomp: 'no'
+automysqlbackup_latest: 'no'
+automysqlbackup_max_allowed_packet: ""
+automysqlbackup_socket: ""
+automysqlbackup_routines: 'yes'
+
+

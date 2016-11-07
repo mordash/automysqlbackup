@@ -1,0 +1,15 @@
+---
+galaxy_info:
+  author: Sebastien Stinkeste
+  company: Alterway
+  description: automysqlbackup install
+  min_ansible_version: 2.1
+  platforms:
+    - name: Debian
+      versions:
+      - jessie
+      - wheezy
+    - name: Ubuntu
+      versions:
+      - trusty
+      - xenial

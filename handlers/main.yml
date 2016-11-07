@@ -1,0 +1,7 @@
+---
+- name: automysqlbackup_start
+  shell: "/usr/sbin/automysqlbackup"
+
+- name: cron_start
+  service: name=cron state=started
+

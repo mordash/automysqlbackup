@@ -1,0 +1,31 @@
+---
+- name: Template /etc/default/automysqlbackup
+  template:
+    src: 'automysqlbackup.j2'
+    dest: '/etc/default/automysqlbackup'
+    mode: '644'
+    owner: 'root'
+  notify: automysqlbackup_start
+
+- name: create cron.d dir
+  file:
+    path: '/etc/cron.d'
+    state: 'directory'
+  when: ansible_distribution == "Ubuntu" and automysqlbackup_cron is defined
+
+
+- name: custom cron configure
+  template:
+    src: "custom.cron.j2"
+    dest: "/etc/cron.d/automysqlbackup_custom"
+    owner: "root"
+    group: "root"
+    mode: "644"
+  when: automysqlbackup_cron is defined
+
+- name: delete default cron
+  file:
+    path: '/etc/cron.daily/automysqlbackup'
+    state: 'absent'
+  notify: cron_start
+  when: automysqlbackup_cron is defined

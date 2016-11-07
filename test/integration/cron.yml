@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  become: true
+  roles:
+    - { role: awh-automysqlbackup,      tags: ['automysqlbackup'] }
+
+  vars:
+    automysqlbackup_cron:
+      - minute: "*/1"
+        hour: "*"
+        day: "*"
+        month: "*"
+        num_day: "*"

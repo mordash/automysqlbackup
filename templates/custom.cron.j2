@@ -1,0 +1,5 @@
+{% if automysqlbackup_cron is defined %}
+{% for item in automysqlbackup_cron  %}
+{{ item.minute }} {{item.hour}} {{item.day}} {{item.month}} {{item.num_day}}  /usr/sbin/automysqlbackup
+{% endfor %}
+{% endif %}

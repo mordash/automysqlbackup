@@ -1,0 +1,34 @@
+stages:
+- test
+- cleanup
+
+install-automysqlbackup-wheezy:
+  stage: test
+  script:
+    - kitchen test install-automysqlbackup-debian-7-21
+    - kitchen destroy install-automysqlbackup-debian-7-21
+
+install-automysqlbackup-jessie:
+  stage: test
+  script:
+    - kitchen test install-automysqlbackup-debian-8-21
+    - kitchen destroy install-automysqlbackup-debian-8-21
+
+install-automysqlbackup-trusty:
+  stage: test
+  script:
+    - kitchen test install-automysqlbackup-ubuntu-1404-21
+    - kitchen destroy install-automysqlbackup-ubuntu-1404-21
+
+install-automysqlbackup-xenial:
+  stage: test
+  script:
+    - kitchen test install-automysqlbackup-ubuntu-1604-21
+    - kitchen destroy install-automysqlbackup-ubuntu-1604-21
+
+cleanup:
+  stage: cleanup
+  script:
+  - kitchen destroy
+  when: always
+

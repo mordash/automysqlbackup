@@ -1,0 +1,12 @@
+---
+- name: Include install.yml
+  include: install.yml
+  tags:
+    - automysqlbackup
+    - automysqlbackup_install
+
+- name: Include configure.yml
+  include: configure.yml
+  tags:
+    - automysqlbackup
+    - automysqlbackup_configure
