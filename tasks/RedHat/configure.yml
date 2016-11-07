@@ -1,0 +1,8 @@
+---
+- name: Template /etc/automysqlbackup/myserver.conf
+  template:
+    src: 'RedHat/myserver.conf.j2'
+    dest: '/etc/automysqlbackup/myserver.conf'
+    mode: '750'
+    owner: 'root'
+  notify: automysqlbackup_start

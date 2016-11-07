@@ -1,0 +1,38 @@
+---
+#- name: install wget
+#  yum:
+#    name: 'wget'
+#    state: 'present'
+#    update_cache: yes
+#
+- name: check automysqlbackup already installed
+  stat:
+    path: "/usr/local/bin/automysqlbackup"
+  register: automysqlbackup
+
+- name: create /opt/automysqlbackup
+  file:
+    path: '/opt/automysqlbackup'
+    state: 'directory'
+  when: automysqlbackup.stat.exists == False
+
+- name: download automysqlbackup
+  get_url:
+    url: "{{ automysqlbackup_url }}"
+    dest: "{{ automysqlbackup_tar_dest_dir }}/automysqlbackup-{{ automysqlbackup_version }}.tar.gz"
+  when: automysqlbackup.stat.exists == False
+
+- name: extract automysqlbackup tar.gz
+  unarchive:
+    src: "{{ automysqlbackup_tar_dest_dir }}/automysqlbackup-{{ automysqlbackup_version }}.tar.gz"
+    dest: "{{ automysqlbackup_dest_dir }}/"
+    copy: 'no'
+    owner: 'root'
+    group: 'root'
+    mode: '750'
+  when: automysqlbackup.stat.exists == False
+  register: extract_automysqlbackup
+
+- name: install.sh
+  shell: "cd {{ automysqlbackup_dest_dir }} && ./install.sh"
+  when: extract_automysqlbackup.changed

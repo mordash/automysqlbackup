@@ -1,7 +1,17 @@
 ---
 - name: automysqlbackup_start
   shell: "/usr/sbin/automysqlbackup"
+  when: ansible_os_family == "Debian"
+
+- name: automysqlbackup_start
+  shell: "/usr/local/bin/automysqlbackup"
+  when: ansible_os_family == "RedHat"
 
 - name: cron_start
   service: name=cron state=started
+  when: ansible_os_family == "Debian"
 
+- name: cron_start
+  become: true
+  shell: "systemctl start crond"
+  when: ansible_os_family == "RedHat"

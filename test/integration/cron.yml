@@ -6,8 +6,20 @@
 
   vars:
     automysqlbackup_cron:
-      - minute: "*/1"
+      - path: '/etc/automysqlbackup/myserver.conf'
+        minute: "*/1"
         hour: "*"
         day: "*"
         month: "*"
         num_day: "*"
+        user: 'root'
+
+
+    automysqlbackup_mysql_dump_username: 'root'
+    automysqlbackup_mysql_dump_password: ''
+    automysqlbackup_mysql_dump_host: 'localhost'
+    automysqlbackup_mysql_dump_latest: 'no'
+    automysqlbackup_backup_dir: '/var/lib/automysqlbackup'
+    automysqlbackup_multicore: 'yes'
+    automysqlbackup_db_names: '()'
+    automysqlbackup_mysql_dump_compression: 'gzip'

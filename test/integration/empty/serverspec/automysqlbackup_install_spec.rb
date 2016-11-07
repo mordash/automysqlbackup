@@ -21,8 +21,3 @@ describe file("/etc/default/automysqlbackup") do
   it { should be_mode '644' }
 end
 
-describe file("/etc/cron.daily/automysqlbackup") do
-  it { should be_file }
-  it { should be_owned_by 'root' }
-  it { should be_mode '755' }
-end

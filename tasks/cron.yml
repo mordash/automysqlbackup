@@ -1,0 +1,15 @@
+---
+- name: enable crond
+  become: true
+  shell: "systemctl enable crond"
+  when: ansible_os_family == "RedHat"
+  changed_when: false
+
+- name: custom cron configure
+  template:
+    src: "custom.cron.j2"
+    dest: "/etc/cron.d/automysqlbackup"
+    owner: "root"
+    group: "root"
+    mode: "644"
+  notify: cron_start

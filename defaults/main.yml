@@ -1,4 +1,5 @@
 ---
+# Debian automysqlbackup configuration
 automysqlbackup_dbhost: 'localhost'
 automysqlbackup_backupdir: "/var/lib/automysqlbackup"
 automysqlbackup_mailcontent: 'quiet'
@@ -16,4 +17,10 @@ automysqlbackup_max_allowed_packet: ""
 automysqlbackup_socket: ""
 automysqlbackup_routines: 'yes'
 
-
+# install Centos7
+automysqlbackup_install_url: 'http://downloads.sourceforge.net/project/automysqlbackup/AutoMySQLBackup/{{ automysqlbackup_url_path_version }}'
+automysqlbackup_url_path_version: 'AutoMySQLBackup%20VER%203.0'
+automysqlbackup_version: 'v3.0_rc6'
+automysqlbackup_url: "{{ automysqlbackup_install_url }}/automysqlbackup-{{ automysqlbackup_version }}.tar.gz"
+automysqlbackup_tar_dest_dir: "/tmp"
+automysqlbackup_dest_dir: "/opt/automysqlbackup"

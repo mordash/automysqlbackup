@@ -1,0 +1,12 @@
+---
+- name: Install automysqlbackup
+  apt:
+    name: 'automysqlbackup'
+    update_cache: yes
+    state: 'present'
+
+- name: Install cron for ubuntu xenial
+  apt:
+    name: 'cron'
+    state: 'present'
+  when: ansible_distribution == "Ubuntu" and ansible_distribution_release == "xenial" and automysqlbackup_cron is defined

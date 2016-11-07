@@ -1,6 +1,0 @@
----
-- name: Install automysqlbackup
-  apt:
-    name: 'automysqlbackup'
-    update_cache: yes
-    state: 'present'

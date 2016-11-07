@@ -1,0 +1,15 @@
+---
+- name: Template /etc/automysqlbackup/myserver.conf
+  template:
+    src: 'Debian/automysqlbackup.j2'
+    dest: '/etc/automysqlbackup/myserver.conf'
+    mode: '644'
+    owner: 'root'
+  notify: automysqlbackup_start
+
+- name: delete default cron
+  file:
+    path: '/etc/cron.daily/automysqlbackup'
+    state: 'absent'
+  notify: cron_start
+  when: automysqlbackup_cron is defined
