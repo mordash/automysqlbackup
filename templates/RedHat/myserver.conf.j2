@@ -83,7 +83,7 @@ CONFIG_db_names={{ automysqlbackup_db_names }}
 CONFIG_db_month_names="{{ automysqlbackup_db_month_names }}"
 {% endif %}
 
-# List of DBNAMES to EXLUCDE if DBNAMES is empty, i.e. ().
+# List of DBNAMES to EXCLUDE if DBNAMES is empty, i.e. ().
 {% if automysqlbackup_db_exclude is defined %}
 CONFIG_db_exclude="{{ automysqlbackup_db_exclude }}"
 {% endif %}
