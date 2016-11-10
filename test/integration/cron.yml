@@ -5,8 +5,9 @@
     - { role: awh-automysqlbackup,      tags: ['automysqlbackup'] }
 
   vars:
+
     automysqlbackup_cron:
-      - path: '/etc/automysqlbackup/myserver.conf'
+      - name:  "myserver"
         minute: "*/1"
         hour: "*"
         day: "*"

@@ -44,6 +44,12 @@ platforms:
     verifier:
       ruby_bindir: '/usr/local/bin'
 
+  - name: centos-6-2.1
+    driver_config:
+      image: hub.alterway.fr/kitchen-ansible:centos6-2.1
+    verifier:
+      ruby_bindir: '/usr/local/bin'
+
 verifier:
   ruby_bindir: '/usr/bin'
 
