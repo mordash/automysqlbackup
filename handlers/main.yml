@@ -4,7 +4,7 @@
   when: ansible_os_family == "Debian"
 
 - name: automysqlbackup_start
-  shell: "/usr/local/bin/automysqlbackup"
+  shell: "/usr/local/bin/automysqlbackup {{ automysqlbackup_conf_name }}"
   when: ansible_os_family == "RedHat"
 
 - name: cron_start
@@ -15,3 +15,4 @@
   become: true
   shell: "systemctl start crond"
   when: ansible_os_family == "RedHat"
+

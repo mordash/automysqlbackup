@@ -17,6 +17,8 @@ automysqlbackup_max_allowed_packet: ""
 automysqlbackup_socket: ""
 automysqlbackup_routines: 'yes'
 
+
+automysqlbackup_conf_name: "myserver"
 # install Centos7
 automysqlbackup_install_url: 'http://downloads.sourceforge.net/project/automysqlbackup/AutoMySQLBackup/{{ automysqlbackup_url_path_version }}'
 automysqlbackup_url_path_version: 'AutoMySQLBackup%20VER%203.0'
