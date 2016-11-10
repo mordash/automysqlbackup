@@ -120,7 +120,7 @@ TAG | DESCRIPTION |EXAMPLES
 |automysqlbackup_mysql_dump_create_database  | BOOLEAN  | UNDEFINED |Include CREATE DATABASE in backup?   | 
 |automysqlbackup_mysql_dump_use_separate_dirs | BOOLEAN | UNDEFINED |  Separate backup directory and file for each DB? (yes or no)  | 
 |automysqlbackup_mysql_dump_compression | STRING | UNDEFINED | Choose Compression type. (gzip or bzip2)  | 
-|automysqlbackup_mysql_dump_latest| BOOLEAN | UNDEFINED | tore an additional copy of the latest backup to a standard location so it can be downloaded by third party scripts.  | 
+|automysqlbackup_mysql_dump_latest| BOOLEAN | UNDEFINED | Store an additional copy of the latest backup to a standard location so it can be downloaded by third party scripts.  | 
 |automysqlbackup_mysql_dump_latest_clean_filenames| BOOLEAN | UNDEFINED |  Remove all date and time information from the filenames in the latest folder. | 
 |automysqlbackup_mysql_dump_differential| BOOLEAN | UNDEFINED | Create differential backups.   | 
 |automysqlbackup_mail_mailcontent | STRING | UNDEFINED | Mail setup: log, files, sdtout or quiet  | 

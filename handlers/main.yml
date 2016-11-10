@@ -1,10 +1,10 @@
 ---
 - name: automysqlbackup_start
-  shell: "/usr/sbin/automysqlbackup /etc/automysqlbackup/{{ automysqlbackup_conf_name }}"
+  shell: "/usr/sbin/automysqlbackup /etc/automysqlbackup/{{ automysqlbackup_conf_name }}.conf"
   when: ansible_os_family == "Debian"
 
-- name: automysqlbackup_start
-  shell: "/usr/local/bin/automysqlbackup /etc/automysqlbackup/{{ automysqlbackup_conf_name }}"
+- name: automysqlbackup_started
+  shell: "/usr/local/bin/automysqlbackup /etc/automysqlbackup/{{ automysqlbackup_conf_name }}.conf"
   when: ansible_os_family == "RedHat"
 
 - name: cron_start
@@ -16,3 +16,6 @@
   shell: "systemctl start crond"
   when: ansible_os_family == "RedHat"
 
+- name: cron_started
+  service: name=crond state=restarted
+  when: ansible_distribution == "centos" and ansible_distribution_release == "6"

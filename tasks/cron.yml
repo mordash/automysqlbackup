@@ -1,10 +1,4 @@
 ---
-- name: enable crond
-  become: true
-  shell: "systemctl enable crond"
-  when: ansible_os_family == "RedHat"
-  changed_when: false
-
 - name: custom cron configure
   template:
     src: "custom.cron.j2"

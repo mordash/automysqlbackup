@@ -21,6 +21,7 @@
     automysqlbackup_mysql_dump_host: 'localhost'
     automysqlbackup_mysql_dump_latest: 'no'
     automysqlbackup_backup_dir: '/var/lib/automysqlbackup'
-    automysqlbackup_multicore: 'yes'
+    automysqlbackup_table_exclude: "mysql.event"
+    automysqlbackup_multicore: 'no'
     automysqlbackup_db_names: '()'
     automysqlbackup_mysql_dump_compression: 'gzip'
