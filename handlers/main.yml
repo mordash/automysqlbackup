@@ -1,10 +1,10 @@
 ---
 - name: automysqlbackup_start
-  shell: "/usr/sbin/automysqlbackup"
+  shell: "/usr/sbin/automysqlbackup /etc/automysqlbackup/{{ automysqlbackup_conf_name }}"
   when: ansible_os_family == "Debian"
 
 - name: automysqlbackup_start
-  shell: "/usr/local/bin/automysqlbackup {{ automysqlbackup_conf_name }}"
+  shell: "/usr/local/bin/automysqlbackup /etc/automysqlbackup/{{ automysqlbackup_conf_name }}"
   when: ansible_os_family == "RedHat"
 
 - name: cron_start

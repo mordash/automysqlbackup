@@ -1,10 +1,4 @@
 ---
-#- name: install wget
-#  yum:
-#    name: 'wget'
-#    state: 'present'
-#    update_cache: yes
-#
 - name: check automysqlbackup already installed
   stat:
     path: "/usr/local/bin/automysqlbackup"
