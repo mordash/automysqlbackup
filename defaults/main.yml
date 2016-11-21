@@ -26,3 +26,10 @@ automysqlbackup_version: 'v3.0_rc6'
 automysqlbackup_url: "{{ automysqlbackup_install_url }}/automysqlbackup-{{ automysqlbackup_version }}.tar.gz"
 automysqlbackup_tar_dest_dir: "/tmp"
 automysqlbackup_dest_dir: "/opt/automysqlbackup"
+
+automysqlbackup_db_names: "()"
+automysqlbackup_mysql_dump_username: 'root'
+automysqlbackup_mysql_dump_password: 'root'
+automysqlbackup_mysql_dump_host: 'localhost'
+automysqlbackup_backup_dir: "/var/lib/automysqlbackup"
+automysqlbackup_db_exclude: 'accounts  information_schema'

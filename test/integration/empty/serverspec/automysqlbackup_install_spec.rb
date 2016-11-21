@@ -1,13 +1,13 @@
 require 'serverspec'
 set :backend, :exec
 
-if os[:family] == 'debian' || os[:family] == 'redhat'   then
+if os[:release] == 'wheezy' || os[:family] == 'redhat'   then
     describe file("/var/lib/automysqlbackup") do
       it { should be_directory }
       it { should be_owned_by 'root' }
       it { should be_mode '755' }
     end
-elsif os[:family] == 'ubuntu' then
+elsif os[:release] == 'jessie' || os[:release] == "trusty" then
     describe file("/var/lib/automysqlbackup") do
       it { should be_directory }
       it { should be_owned_by 'root' }

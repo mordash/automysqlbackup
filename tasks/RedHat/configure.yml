@@ -1,11 +1,4 @@
 ---
-#- name: create backup_dir
-#  file:
-#    path: "/var/lib/automysqlbackup"
-#    mode: "755"
-#    owner: 'root'
-#    state: 'directory'
-
 - name: Template /etc/automysqlbackup/myserver.conf
   template:
     src: 'RedHat/myserver.conf.j2'

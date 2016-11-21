@@ -6,4 +6,6 @@
     owner: "root"
     group: "root"
     mode: "644"
-  notify: cron_start
+  notify:
+    - cron_start
+    - cron_restart

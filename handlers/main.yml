@@ -16,6 +16,6 @@
   shell: "systemctl start crond"
   when: ansible_os_family == "RedHat"
 
-- name: cron_started
+- name: cron_restart
   service: name=crond state=restarted
   when: ansible_distribution == "centos" and ansible_distribution_release == "6"
