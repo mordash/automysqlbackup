@@ -2,7 +2,6 @@
 - name: Install automysqlbackup
   apt:
     name: 'automysqlbackup'
-    update_cache: yes
     state: 'present'
 
 - name: Install cron for ubuntu xenial

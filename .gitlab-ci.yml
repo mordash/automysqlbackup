@@ -1,34 +1,75 @@
+
+before_script:
+  - bundle install > /dev/null
+
+after_script:
+  - kitchen destroy > /dev/null
+
 stages:
 - test
-- cleanup
 
-install-automysqlbackup-wheezy:
+wheezy:
   stage: test
   script:
-    - kitchen test install-automysqlbackup-debian-7-21
-    - kitchen destroy install-automysqlbackup-debian-7-21
+    - OS=wheezy
+    - kitchen test $OS
+  only:
+    - master
+    - develop
+  except:
+    - tags
 
-install-automysqlbackup-jessie:
+jessie:
   stage: test
   script:
-    - kitchen test install-automysqlbackup-debian-8-21
-    - kitchen destroy install-automysqlbackup-debian-8-21
+    - OS=jessie
+    - kitchen test $OS
+  only:
+    - master
+    - develop
+  except:
+    - tags
 
-install-automysqlbackup-trusty:
+trusty:
   stage: test
   script:
-    - kitchen test install-automysqlbackup-ubuntu-1404-21
-    - kitchen destroy install-automysqlbackup-ubuntu-1404-21
+    - OS=trusty
+    - kitchen test $OS
+  only:
+    - master
+    - develop
+  except:
+    - tags
 
-install-automysqlbackup-xenial:
+xenial:
   stage: test
   script:
-    - kitchen test install-automysqlbackup-ubuntu-1604-21
-    - kitchen destroy install-automysqlbackup-ubuntu-1604-21
+    - OS=xenial
+    - kitchen test $OS
+  only:
+    - master
+    - develop
+  except:
+    - tags
 
-cleanup:
-  stage: cleanup
+centos-7:
+  stage: test
   script:
-  - kitchen destroy
-  when: always
+    - OS=centos-7
+    - kitchen test $OS
+  only:
+    - master
+    - develop
+  except:
+    - tags
 
+centos-6:
+  stage: test
+  script:
+    - OS=centos-6
+    - kitchen test $OS
+  only:
+    - master
+    - develop
+  except:
+    - tags

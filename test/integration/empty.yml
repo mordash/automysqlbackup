@@ -28,9 +28,10 @@
 
   pre_tasks:
     - name: Install mysql
+      become: sudo
       apt:
         name: "{{ item }}"
-        update_cache: yes
+#        update_cache: yes
         state: present
       with_items:
         - mysql-server
@@ -54,15 +55,26 @@
       when: ansible_os_family == "RedHat" and path.stat.exists == False
 
     - name: Install mysql
+      become: sudo
       yum:
         name: "{{ item }}"
-        update_cache: yes
+#        update_cache: yes
         state: present
       with_items:
         - mysql-server
         - MySQL-python
       when: ansible_os_family == "RedHat"
       notify: start mysql
+
+    - name: start mysql
+      command: "systemctl start mysqld"
+      when: ansible_os_family == "RedHat"
+
+    - name:  mysql start
+      service:
+        name: mysql
+        state: started
+      when: ansible_os_family == "Debian"
 
     - name: create db
       mysql_db:
