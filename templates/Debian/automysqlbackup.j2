@@ -4,13 +4,13 @@
 # To do this, simply edit bellow.
 
 # Username to access the MySQL server e.g. dbuser
-USERNAME={{ automysqlbackup_username }}
+USERNAME="{{ automysqlbackup_username }}"
 
 # Username to access the MySQL server e.g. password
-PASSWORD={{ automysqlbackup_password }}
+PASSWORD="{{ automysqlbackup_password }}"
 
 # Host name (or IP address) of MySQL server e.g localhost
-DBHOST={{ automysqlbackup_dbhost }}
+DBHOST="{{ automysqlbackup_dbhost }}"
 
 # List of DBNAMES for Daily/Weekly Backup e.g. "DB1 DB2 DB3"
 # Note that it's absolutely normal that the db named "mysql" is not in this
@@ -22,13 +22,13 @@ DBHOST={{ automysqlbackup_dbhost }}
 # reading the mysql folder content. Feel free to replace by something else.
 # DBNAMES=`find /var/lib/mysql -mindepth 1 -maxdepth 1 -type d | cut -d'/' -f5 | grep -v ^mysql\$ | tr \\\r\\\n ,\ `
 # This one does a list of dbs using a MySQL statement.
-DBNAMES={{ automysqlbackup_dbnames }}
+DBNAMES="{{ automysqlbackup_dbnames }}"
 
 # Backup directory location e.g /backups
 # Folders inside this one will be created (daily, weekly, etc.), and the
 # subfolders will be database names. Note that backups will be owned by
 # root, with Unix rights 0600.
-BACKUPDIR={{ automysqlbackup_backupdir }}
+BACKUPDIR="{{ automysqlbackup_backupdir }}"
 
 # Mail setup
 # What would you like to be mailed to you?
@@ -53,7 +53,7 @@ MAILADDR="root"
 MDBNAMES="mysql $DBNAMES"
 
 # List of DBNAMES to EXLUCDE if DBNAMES are set to all (must be in " quotes)
-DBEXCLUDE={{ automysqlbackup_dbexclude }}
+DBEXCLUDE="{{ automysqlbackup_dbexclude }}"
 
 # Include CREATE DATABASE in backup?
 CREATE_DATABASE=yes
@@ -83,10 +83,10 @@ MAX_ALLOWED_PACKET=
 SOCKET=
 
 # Command to run before backups (uncomment to use)
-PREBACKUP={{ automysqlbackup_prebackup }}
+PREBACKUP="{{ automysqlbackup_prebackup }}"
 
 # Command run after backups (uncomment to use)
-POSTBACKUP={{ automysqlbackup_postbackup }}
+POSTBACKUP="{{ automysqlbackup_postbackup }}"
 
 # Backup of stored procedures and routines (comment to remove)
 ROUTINES=yes
