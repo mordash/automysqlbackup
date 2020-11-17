@@ -4,10 +4,10 @@
 # To do this, simply edit bellow.
 
 # Username to access the MySQL server e.g. dbuser
-#USERNAME=`grep user /etc/mysql/debian.cnf | tail -n 1 | cut -d"=" -f2 | awk '{print $1}'`
+USERNAME={{ automysqlbackup_username }}
 
 # Username to access the MySQL server e.g. password
-#PASSWORD=`grep password /etc/mysql/debian.cnf | tail -n 1 | cut -d"=" -f2 | awk '{print $1}'`
+PASSWORD={{ automysqlbackup_password }}
 
 # Host name (or IP address) of MySQL server e.g localhost
 DBHOST={{ automysqlbackup_dbhost }}
@@ -22,13 +22,13 @@ DBHOST={{ automysqlbackup_dbhost }}
 # reading the mysql folder content. Feel free to replace by something else.
 # DBNAMES=`find /var/lib/mysql -mindepth 1 -maxdepth 1 -type d | cut -d'/' -f5 | grep -v ^mysql\$ | tr \\\r\\\n ,\ `
 # This one does a list of dbs using a MySQL statement.
-DBNAMES=`mysql --defaults-file=/etc/mysql/debian.cnf --execute="SHOW DATABASES" | awk '{print $1}' | grep -v ^Database$ | grep -v ^mysql$ | grep -v ^performance_schema$ | grep -v ^information_schema$ | tr \\\r\\\n ,\ `
+DBNAMES={{ automysqlbackup_dbnames }}
 
 # Backup directory location e.g /backups
 # Folders inside this one will be created (daily, weekly, etc.), and the
 # subfolders will be database names. Note that backups will be owned by
 # root, with Unix rights 0600.
-BACKUPDIR="{{ automysqlbackup_backupdir }}"
+BACKUPDIR={{ automysqlbackup_backupdir }}
 
 # Mail setup
 # What would you like to be mailed to you?
@@ -36,59 +36,57 @@ BACKUPDIR="{{ automysqlbackup_backupdir }}"
 # - files : send log file and sql files as attachments (see docs)
 # - stdout : will simply output the log to the screen if run manually.
 # - quiet : Only send logs if an error occurs to the MAILADDR.
-MAILCONTENT="{{ automysqlbackup_mailcontent }}"
+MAILCONTENT="quiet"
 
 # Set the maximum allowed email size in k. (4000 = approx 5MB email [see
 # docs])
-MAXATTSIZE="{{ automysqlbackup_maxattsize }}"
+MAXATTSIZE="4000"
 
 # Email Address to send mail to? (user@domain.com)
-MAILADDR="{{ automysqlbackup_mailaddr }}"
+MAILADDR="root"
 
 # ============================================================
 # === ADVANCED OPTIONS ( Read the doc's below for details )===
 #=============================================================
 
 # List of DBBNAMES for Monthly Backups.
-MDBNAMES="{{ automysqlbackup_mdbnames }}"
+MDBNAMES="mysql $DBNAMES"
+
 # List of DBNAMES to EXLUCDE if DBNAMES are set to all (must be in " quotes)
-DBEXCLUDE="{{ automysqlbackup_dbexclude }}"
+DBEXCLUDE={{ automysqlbackup_dbexclude }}
 
 # Include CREATE DATABASE in backup?
-CREATE_DATABASE={{ automysqlbackup_create_database }}
+CREATE_DATABASE=yes
 
 # Separate backup directory and file for each DB? (yes or no)
-SEPDIR={{ automysqlbackup_sepdir }}
+SEPDIR=yes
 
 # Which day do you want weekly backups? (1 to 7 where 1 is Monday)
-DOWEEKLY={{ automysqlbackup_doweekly }}
+DOWEEKLY=6
 
 # Choose Compression type. (gzip or bzip2)
-COMP={{ automysqlbackup_comp }}
+COMP=gzip
 
 # Compress communications between backup server and MySQL server?
-COMMCOMP={{ automysqlbackup_commcomp }}
+COMMCOMP=no
 
 # Additionally keep a copy of the most recent backup in a seperate
 # directory.
-LATEST={{ automysqlbackup_latest }}
+LATEST=no
 
 #  The maximum size of the buffer for client/server communication. e.g. 16MB
 #  (maximum is 1GB)
-MAX_ALLOWED_PACKET={{ automysqlbackup_max_allowed_packet }}
+MAX_ALLOWED_PACKET=
 
 #  For connections to localhost. Sometimes the Unix socket file must be
 #  specified.
-SOCKET={{ automysqlbackup_socket }}
+SOCKET=
 
-{% if automysqlbackup_prebackup is defined %}
-PREBACKUP={{ automysqlbackup_prebackup | default("/etc/mysql-backup-pre") }}
-{% endif %}
+# Command to run before backups (uncomment to use)
+PREBACKUP={{ automysqlbackup_prebackup }}
 
-{% if automysqlbackup_postbackup is defined %}
-POSTBACKUP={{ automysqlbackup_postbackup | default("/etc/mysql-backup-post") }}
-{% endif %}
-
+# Command run after backups (uncomment to use)
+POSTBACKUP={{ automysqlbackup_postbackup }}
 
 # Backup of stored procedures and routines (comment to remove)
-ROUTINES={{ automysqlbackup_routines }}
+ROUTINES=yes
