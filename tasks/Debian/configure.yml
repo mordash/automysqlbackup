@@ -6,8 +6,8 @@
     mode: '644'
     owner: 'root'
   notify: automysqlbackup_start
-  with_nested:
-    - "{{ automysqlbackup_conf_names }}"
+  with_items:
+    - "{{ automysqlbackup_conf_name }}"
 
 - name: delete default cron
   file:

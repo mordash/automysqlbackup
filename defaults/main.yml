@@ -16,6 +16,8 @@ automysqlbackup_latest: 'no'
 automysqlbackup_max_allowed_packet: ""
 automysqlbackup_socket: ""
 automysqlbackup_routines: 'yes'
+automysqlbackup_prebackup: ""
+automysqlbackup_postbackup: ""
 
 
 automysqlbackup_conf_name: "myserver"
