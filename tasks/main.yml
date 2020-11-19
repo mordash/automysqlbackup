@@ -1,28 +1,12 @@
 ---
-- name: Include install.yml | Debian
-  include: Debian/install.yml
-  when: ansible_os_family == "Debian"
+- name: Include install.yml
+  include: install.yml
   tags:
     - automysqlbackup
     - automysqlbackup_install
 
-- name: Include configure.yml | Debian
-  include: Debian/configure.yml
-  when: ansible_os_family == "Debian"
-  tags:
-    - automysqlbackup
-    - automysqlbackup_configure
-
-- name: Include install.yml | RedHat
-  include: RedHat/install.yml
-  when: ansible_os_family == "RedHat"
-  tags:
-    - automysqlbackup
-    - automysqlbackup_install
-
-- name: Include configure.yml | RedHat
-  include: RedHat/configure.yml
-  when: ansible_os_family == "RedHat"
+- name: Include configure.yml
+  include: configure.yml
   tags:
     - automysqlbackup
     - automysqlbackup_configure

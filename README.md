@@ -63,7 +63,7 @@ TAG | DESCRIPTION |EXAMPLES
 
 
 ## Variables Automysqlbackup for Debian/Ubuntu
-
+*deprecated! variable list have changed and do not depends on the host system anymore*
 
 | Variables |  Type  | Default |  Descriptions | 
 |---|---|---|---|---|
@@ -88,6 +88,7 @@ TAG | DESCRIPTION |EXAMPLES
 
 
 ## Variables Automysqlbackup for RedHat 
+*deprecated! variable list have changed and do not depends on the host system anymore*
 
 
 | Variables |  Type  | Default |  Descriptions |
@@ -151,6 +152,3 @@ automysqlbackup_cron:
     num_day: "*"
     user: 'root
 ```
-
-
-

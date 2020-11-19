@@ -1,4 +1,5 @@
 ---
+## TODO : CHECK WHICH VARS ARE USELESS WITH THE NEW CONFIG TEMPLATE
 # Debian automysqlbackup configuration
 automysqlbackup_dbhost: 'localhost'
 automysqlbackup_backupdir: "/var/lib/automysqlbackup"
