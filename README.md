@@ -34,17 +34,17 @@ TAG | DESCRIPTION |EXAMPLES
 
 | Variables |  Type  | Default |  Descriptions |
 |---|---|---|---|
-|automysqlbackup_mysql_dump_username | STRING | UNDEFINED |  Username to access the MySQL server e.g. dbuser  | 
-|automysqlbackup_mysql_dump_password | STRING  | UNDEFINED | Password to access the MySQL server   | 
-|automysqlbackup_mysql_dump_host| STRING  |  UNDEFINED | Host name (or IP address) of MySQL server  | 
+|automysqlbackup_mysql_dump_username | STRING | 'root' |  Username to access the MySQL server e.g. dbuser  | 
+|automysqlbackup_mysql_dump_password | STRING  | 'root' | Password to access the MySQL server   | 
+|automysqlbackup_mysql_dump_host| STRING  | 'localhost' | Host name (or IP address) of MySQL server  | 
 |automysqlbackup_mysql_dump_host_friendly| STRING  | UNDEFINED | "Friendly" host name of MySQL server to be used in email log  | 
-|automysqlbackup_backup_dir | STRING  |  UNDEFINED |Backup directory location   | 
+|automysqlbackup_backup_dir | STRING  | "/var/lib/automysqlbackup" |Backup directory location   | 
 |automysqlbackup_multicore | BOOLEAN | UNDEFINED | This is practically a moot point, since there is a fallback to the compression functions without multicore support in the case that the multicore versions aren't present in the system.   | 
 |automysqlbackup_multicore_threads | NUMBER | UNDEFINED | Number of threads (= occupied cores) you want to use  | 
-|automysqlbackup_db_names | STRING  | UNDEFINED | Databases to backup  | 
-|automysqlbackup_db_month_names | STRING   |  UNDEFINED | List of databases for Monthly Backups  | 
-|automysqlbackup_db_exclude | STRING  |  UNDEFINED |   | List of DBNAMES to EXCLUDE if DBNAMES is empty
-|automysqlbackup_table_exclude | STRING  |  UNDEFINED | List of tables to exclude, in the form db_name.table_name  | 
+|automysqlbackup_db_names | STRING  | "()" | Databases to backup (empty = all)  | 
+|automysqlbackup_db_month_names | STRING  |  UNDEFINED | List of databases for Monthly Backups  | 
+|automysqlbackup_db_exclude | STRING  | "( 'performance_schema' 'accounts' 'information_schema' )" |   | List of DBNAMES to EXCLUDE if DBNAMES is empty
+|automysqlbackup_table_exclude | STRING  | UNDEFINED | List of tables to exclude, in the form db_name.table_name  | 
 |automysqlbackup_do_monthly | NUMBER | UNDEFINED | Which day do you want monthly backups?   | 
 |automysqlbackup_do_weekly | NUMBER |  UNDEFINED | Which day do you want weekly backups? (1 to 7 where 1 is Monday)  | 
 |automysqlbackup_rotation_daily | NUMBER |  UNDEFINED | Set rotation of daily backups. VALUE*24hours  | 
