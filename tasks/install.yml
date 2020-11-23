@@ -28,5 +28,5 @@
   register: extract_automysqlbackup
 
 - name: install.sh
-  shell: "cd {{ automysqlbackup_dest_dir }} && ./install.sh"
+  shell: 'cd {{ automysqlbackup_dest_dir }} && echo "/etc/automysqlbackup" | ./install.sh'
   when: extract_automysqlbackup.changed

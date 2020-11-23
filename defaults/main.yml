@@ -38,3 +38,11 @@ automysqlbackup_mysql_dump_password: 'root'
 automysqlbackup_mysql_dump_host: 'localhost'
 automysqlbackup_backup_dir: "/var/lib/automysqlbackup"
 automysqlbackup_db_exclude: 'accounts  information_schema'
+
+automysqlbackup_cron_minute: 0
+automysqlbackup_cron_hour: 1
+automysqlbackup_cron_day: '*'
+automysqlbackup_cron_month: '*'
+automysqlbackup_cron_num_day: '*'
+automysqlbackup_cron_user: 'root'
+automysqlbackup_cron_name: 'myserver'

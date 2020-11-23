@@ -1,8 +1,4 @@
 {% for item in automysqlbackup_cron  %}
-{% if automysqlbackup_cron is defined and ansible_os_family == "Debian" %}
-{{ item.minute }} {{item.hour}} {{item.day}} {{item.month}} {{item.num_day}} {{item.user}} /usr/sbin/automysqlbackup /etc/automysqlbackup/{{ item.name }}.conf
-{% elif automysqlbackup_cron is defined and ansible_os_family == "RedHat" %}
-{{ item.minute }} {{item.hour}} {{item.day}} {{item.month}} {{item.num_day}} {{item.user}} /usr/local/bin/automysqlbackup /etc/automysqlbackup/{{ item.name }}.conf
-{% endif %}
+{{ automysqlbackup_cron_minute }} {{automysqlbackup_cron_hour}} {{automysqlbackup_cron_day}} {{automysqlbackup_cron_month}} {{automysqlbackup_cron_num_day}} {{automysqlbackup_cron_user}} /usr/local/bin/automysqlbackup /etc/automysqlbackup/{{ automysqlbackup_cron_name }}.conf
 {% endfor %}
 
