@@ -46,9 +46,9 @@ None
 
 ## Supported OS
 
-  ![Debian](https://img.shields.io/badge/Debian-Jessie|Wheezy-blue.svg)
-  ![Ubuntu](https://img.shields.io/badge/Ubuntu-Trusty|xenial-blue.svg)
-  ![Centos7](https://img.shields.io/badge/RedHat-Centos7-blue.svg)
+  ![Debian](https://img.shields.io/badge/Debian-Tested-green.svg)
+  ![Ubuntu](https://img.shields.io/badge/Ubuntu-Tested-green.svg)
+  ![Centos7](https://img.shields.io/badge/RedHat-untested-yellow.svg)
 
 ## Tags
 
@@ -61,38 +61,10 @@ TAG | DESCRIPTION |EXAMPLES
   automysqlbackup_config | Configure automysqlbackup  | ```ansible-playbook playbooks/automysqlbackup.yml --tags automysqlbackup_config```
   automysqlbackup_cron | Configure cron task  | ```ansible-playbook playbooks/automysqlbackup.yml --tags automysqlbackup_cron```
 
-
-## Variables Automysqlbackup for Debian/Ubuntu
-*deprecated! variable list have changed and do not depends on the host system anymore*
-
-| Variables |  Type  | Default |  Descriptions | 
-|---|---|---|---|---|
-|automysqlbackup_dbhost | | 'localhost'  | Host name (or IP address) of MySQL server
-|automysqlbackup_backupdir | |  "/var/lib/automysqlbackup" | Backup directory location Folders inside this one will be created (daily, weekly, etc.), and the subfolders will be database names
-|automysqlbackup_mailcontent  | |  'quiet' | Mail setup: log, files, sdtout or quiet
-|automysqlbackup_maxattsize  | | '4000' | Set the maximum allowed email size in k
-|automysqlbackup_mailaddr | |  'root' | Email Address to send mail to? (user@domain.com)
-|automysqlbackup_mdbnames  | |  "mysql $DBNAMES" |  List of DBBNAMES for Monthly Backups
-|automysqlbackup_dbexclude | |  "" |  List of DBNAMES to EXLUCDE if DBNAMES are set to all
-|automysqlbackup_create_database  | |  'yes' | Include CREATE DATABASE in backup? 
-|automysqlbackup_sepdir | |  'yes' | Separate backup directory and file for each DB?
-|automysqlbackup_doweekly | |  '6' | Which day do you want weekly backups? (1 to 7 where 1 is Monday) 
-|automysqlbackup_comp | |  'gzip' | hoose Compression type. (gzip or bzip2)
-|automysqlbackup_commcomp | |  'no' |Compress communications between backup server and MySQL server?
-|automysqlbackup_latest | |  'no' | Additionally keep a copy of the most recent backup in a seperate directory.
-|automysqlbackup_max_allowed_packet | |  "" |  The maximum size of the buffer for client/server communication (maximum is 1GB)
-|automysqlbackup_socket | |  "" | For connections to localhost. Sometimes the Unix socket file must be specified.
-|automysqlbackup_routines |  | | Backup of stored procedures and routines
-|automysqlbackup_prebackup | |  UNDEFINED |   | Command to run before backups (uncomment to use)
-|automysqlbackup_postbackup | | UNDEFINED |   | Command run after backups (uncomment to use)
-
-
-## Variables Automysqlbackup for RedHat 
-*deprecated! variable list have changed and do not depends on the host system anymore*
-
+## Variables
 
 | Variables |  Type  | Default |  Descriptions |
-|---|---|---|---|---|
+|---|---|---|---|
 |automysqlbackup_mysql_dump_username | STRING | UNDEFINED |  Username to access the MySQL server e.g. dbuser  | 
 |automysqlbackup_mysql_dump_password | STRING  | UNDEFINED | Password to access the MySQL server   | 
 |automysqlbackup_mysql_dump_host| STRING  |  UNDEFINED | Host name (or IP address) of MySQL server  | 
