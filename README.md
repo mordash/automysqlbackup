@@ -1,44 +1,13 @@
 Ansible AUTOMYSQLBACKUP ![ansible-Automysqlbackup](https://img.shields.io/badge/ansible-Automysqlbackup-fd4526.svg)
 =============================================================================================================
 
-
-[Overview]: #overview
-[Role description]: #role-description
-[Supported OS]: #supported-os
-[Requirements]: #requirements
-[Dependancies]: #dependancies
-[Tags]: #tags
-[Variables automysqlbackup for Debian/Ubuntu]: #variables-automysqlbackup-for-debian/dbuntu
-[Variables automysqlbackup for RedHat]: #variables-automysqlbackup-for-redhat
-[Change cron path]: #change-cron-path
-
-
-
-#### Table of Contents
-
-1. [Overview][Overview]
-2. [Role description][Role description]
-3. [Requirements][Requirements]
-4. [Dependancies][Dependancies]
-5. [Supported OS][Supported OS]
-6. [Tags][Tags]
-7. [Variables automysqlbackup for Debian/Ubuntu][Variables automysqlbackup for Debian/Ubuntu]
-8. [Variables automysqlbackup for RedHat][Variables automysqlbackup for RedHat]
-9. [Change cron path][Change cron path]
-
-
-
-## Overview
-
-This role manage [Automysqlbackup] 
-
 ## Role description
 
 This role install and configure Automysqlbackup.
 
 ## Requirements
 
-  - mysql-server
+  - mysql-server || mariadb-server
 
 ## Dependancies
 
