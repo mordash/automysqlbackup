@@ -107,20 +107,10 @@ TAG | DESCRIPTION |EXAMPLES
 |automysqlbackup_prebackup | STRING | UNDEFINED | Command to run before backups  | 
 |automysqlbackup_postbackup | STRING | UNDEFINED | Command run after backups  | 
 |automysqlbackup_umask | NUMBER | UNDEFINED | umask  | 
-|automysqlbackup_dryrun| NUMBER | UNDEFINED | show what you are gonna do without actually doing it  | 
-
-
-## Change cron path
-
-`Exemple:`
-
-```yaml
-automysqlbackup_cron:
-  - path: '/etc/automysqlbackup/myserver.conf'
-    minute: "*/1"
-    hour: "*"
-    day: "*"
-    month: "*"
-    num_day: "*"
-    user: 'root
-```
+|automysqlbackup_cron_minute | NUMBER | 0 | cron exec min  | 
+|automysqlbackup_cron_hour | NUMBER | 1 | cron exec hour  | 
+|automysqlbackup_cron_day | NUMBER | '*' | cron exec day  | 
+|automysqlbackup_cron_month | NUMBER | '*' | cron exec month  | 
+|automysqlbackup_cron_num_day | NUMBER | '*' | cron exec num day  | 
+|automysqlbackup_cron_user | STRING | 'root' | cron user  | 
+|automysqlbackup_cron_name | STRING | 'myserver' | cron task name  | 
