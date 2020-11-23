@@ -80,12 +80,12 @@ CONFIG_db_names={{ automysqlbackup_db_names }}
 # List of databases for Monthly Backups.
 # set to (), i.e. empty, if you want to backup all databases
 {% if automysqlbackup_db_month_names is defined %}
-CONFIG_db_month_names="{{ automysqlbackup_db_month_names }}"
+CONFIG_db_month_names={{ automysqlbackup_db_month_names }}
 {% endif %}
 
 # List of DBNAMES to EXCLUDE if DBNAMES is empty, i.e. ().
 {% if automysqlbackup_db_exclude is defined %}
-CONFIG_db_exclude="{{ automysqlbackup_db_exclude }}"
+CONFIG_db_exclude={{ automysqlbackup_db_exclude }}
 {% endif %}
 
 # List of tables to exclude, in the form db_name.table_name

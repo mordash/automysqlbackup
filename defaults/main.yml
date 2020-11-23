@@ -1,30 +1,14 @@
 ---
-## TODO : CHECK WHICH VARS ARE USELESS WITH THE NEW CONFIG TEMPLATE
-# Debian automysqlbackup configuration
-automysqlbackup_dbhost: 'localhost'
-automysqlbackup_backupdir: "/var/lib/automysqlbackup"
-automysqlbackup_mailcontent: 'quiet'
-automysqlbackup_maxattsize: '4000'
-automysqlbackup_mailaddr: 'root'
-automysqlbackup_mdbnames: "mysql $DBNAMES"
-automysqlbackup_dbexclude: ""
-automysqlbackup_create_database: 'yes'
-automysqlbackup_sepdir: 'yes'
-automysqlbackup_doweekly: '6'
-automysqlbackup_comp: 'gzip'
-automysqlbackup_commcomp: 'no'
-automysqlbackup_latest: 'no'
-automysqlbackup_max_allowed_packet: ""
-automysqlbackup_socket: ""
-automysqlbackup_routines: 'yes'
-automysqlbackup_prebackup: ""
-automysqlbackup_postbackup: ""
+## config template vars
+automysqlbackup_mysql_dump_username: 'root'
+automysqlbackup_mysql_dump_password: 'root'
+automysqlbackup_mysql_dump_host: 'localhost'
+automysqlbackup_backup_dir: "/var/lib/automysqlbackup"
+automysqlbackup_db_names: "()"
+automysqlbackup_db_exclude: "( 'performance_schema' 'accounts' 'information_schema' )"
 
 
-automysqlbackup_conf_name: "myserver"
-
-
-# install Centos7
+## install vars
 automysqlbackup_install_url: 'http://downloads.sourceforge.net/project/automysqlbackup/AutoMySQLBackup/{{ automysqlbackup_url_path_version }}'
 automysqlbackup_url_path_version: 'AutoMySQLBackup%20VER%203.0'
 automysqlbackup_version: 'v3.0_rc6'
@@ -32,14 +16,10 @@ automysqlbackup_url: "{{ automysqlbackup_install_url }}/automysqlbackup-{{ autom
 automysqlbackup_tar_dest_dir: "/tmp"
 automysqlbackup_dest_dir: "/opt/automysqlbackup"
 automysqlbackup_conf_dir: "/etc/automysqlbackup"
+automysqlbackup_conf_name: "myserver"
 
-automysqlbackup_db_names: "()"
-automysqlbackup_mysql_dump_username: 'root'
-automysqlbackup_mysql_dump_password: 'root'
-automysqlbackup_mysql_dump_host: 'localhost'
-automysqlbackup_backup_dir: "/var/lib/automysqlbackup"
-automysqlbackup_db_exclude: 'accounts  information_schema'
 
+## cron vars
 automysqlbackup_cron_minute: 0
 automysqlbackup_cron_hour: 1
 automysqlbackup_cron_day: '*'
