@@ -5,6 +5,5 @@
     dest: '/etc/automysqlbackup/{{ item }}.conf'
     mode: '750'
     owner: 'root'
-  notify: automysqlbackup_started
   with_items:
     - "{{ automysqlbackup_conf_name }}"
