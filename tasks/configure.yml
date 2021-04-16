@@ -7,3 +7,14 @@
     owner: 'root'
   with_items:
     - "{{ automysqlbackup_conf_name }}"
+
+- name: Create password file if needed
+  copy:
+    dest: "{{ automysqlbackup_mysql_dump_passfile }}"
+    content: "password: {{ mysql_user_backup_password }}"
+    owner: root
+    group: root
+    mode: '0600'
+  when:
+    - automysqlbackup_mysql_dump_passfile is defined
+    - mysql_user_backup_password is defined

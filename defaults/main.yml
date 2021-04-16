@@ -1,7 +1,8 @@
 ---
 ## config template vars
 automysqlbackup_mysql_dump_username: 'root'
-automysqlbackup_mysql_dump_password: 'root'
+automysqlbackup_mysql_dump_password: "`grep password /root/.automysqlbackup.cnf | awk '{print $2}'`"
+automysqlbackup_mysql_dump_passfile: '/root/automysqlbackup.cnf'
 automysqlbackup_mysql_dump_host: 'localhost'
 automysqlbackup_backup_dir: "/var/lib/automysqlbackup"
 automysqlbackup_db_names: "()"
