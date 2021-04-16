@@ -32,12 +32,13 @@ TAG | DESCRIPTION |EXAMPLES
 
 ## Variables
 
+### Configuration
 | Variables |  Type  | Default |  Descriptions |
 |---|---|---|---|
 |automysqlbackup_mysql_dump_username | STRING | 'root' |  Username to access the MySQL server   |
 |automysqlbackup_mysql_dump_password | STRING  | "\`grep password /root/.automysqlbackup.cnf \| awk '{print $2}'\`" | Password to access the MySQL server<br />Clear text in the conf !   |
 |automysqlbackup_mysql_dump_passfile | STRING  | '/root/automysqlbackup.cnf' | To create a more secure file containing the password<br />Require {{ mysql_user_dump_password }}   |
-|mysql_user_backup_password | STRING  |  | MySQL user's password to put in the passfile<br />Put this one in a vault !   |
+|mysql_user_backup_password | STRING  | UNDEFINED | MySQL users' password to put in the passfile<br />Put this one in a vault !   |
 |automysqlbackup_mysql_dump_host| STRING  | 'localhost' | Host name (or IP address) of MySQL server  | 
 |automysqlbackup_mysql_dump_host_friendly| STRING  | UNDEFINED | "Friendly" host name of MySQL server to be used in email log  | 
 |automysqlbackup_backup_dir | STRING  | "/var/lib/automysqlbackup" |Backup directory location   | 
@@ -78,10 +79,25 @@ TAG | DESCRIPTION |EXAMPLES
 |automysqlbackup_prebackup | STRING | UNDEFINED | Command to run before backups  | 
 |automysqlbackup_postbackup | STRING | UNDEFINED | Command run after backups  | 
 |automysqlbackup_umask | NUMBER | UNDEFINED | umask  | 
+
+### Installation
+| Variables |  Type  | Default |  Descriptions |
+|---|---|---|---|
+|automysqlbackup_install_url | STRING | 'http://downloads.sourceforge.net/project/automysqlbackup/AutoMySQLBackup/{{ automysqlbackup_url_path_version }}' | Install link  | 
+|automysqlbackup_url_path_version | STRING | 'AutoMySQLBackup%20VER%203.0' | Install links' version  | 
+|automysqlbackup_version | STRING | 'v3.0_rc6' | Automysqlbackups' version  | 
+|automysqlbackup_url | STRING | '{{ automysqlbackup_install_url }}/automysqlbackup-{{ automysqlbackup_version }}.tar.gz' | Full install URL  | 
+|automysqlbackup_tar_dest_dir | STRING | "/tmp" | Where to download automysqlbackup  | 
+|automysqlbackup_dest_dir | STRING | "/opt/automysqlbackup" | Where to install automysqlbackup  | 
+|automysqlbackup_conf_dir | STRING | "/etc/automysqlbackup" | Where to put automysqlbackups' conf  | 
+|automysqlbackup_conf_name | STRING | "myserver" | Name of the conf  | 
+
+### Cron
+| Variables |  Type  | Default |  Descriptions |
+|---|---|---|---|
 |automysqlbackup_cron_minute | NUMBER | 0 | cron exec min  | 
 |automysqlbackup_cron_hour | NUMBER | 1 | cron exec hour  | 
 |automysqlbackup_cron_day | NUMBER | '*' | cron exec day  | 
 |automysqlbackup_cron_month | NUMBER | '*' | cron exec month  | 
 |automysqlbackup_cron_num_day | NUMBER | '*' | cron exec num day  | 
 |automysqlbackup_cron_user | STRING | 'root' | cron user  | 
-|automysqlbackup_cron_name | STRING | 'myserver' | cron task name  | 
