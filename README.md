@@ -35,7 +35,7 @@ TAG | DESCRIPTION |EXAMPLES
 | Variables |  Type  | Default |  Descriptions |
 |---|---|---|---|
 |automysqlbackup_mysql_dump_username | STRING | 'root' |  Username to access the MySQL server   |
-|automysqlbackup_mysql_dump_password | STRING  | "`grep password /root/.automysqlbackup.cnf | awk '{print $2}'`" | Password to access the MySQL server\ Clear text in the conf !   |
+|automysqlbackup_mysql_dump_password | STRING  | "`grep password /root/.automysqlbackup.cnf \| awk '{print $2}'`" | Password to access the MySQL server\ Clear text in the conf !   |
 |automysqlbackup_mysql_dump_passfile | STRING  | '/root/automysqlbackup.cnf' | To create a more secure file containing the password\ Require {{ mysql_user_dump_password }}   |
 |mysql_user_backup_password | STRING  |  | MySQL user's password to put in the passfile\ Put this one in a vault !   |
 |automysqlbackup_mysql_dump_host| STRING  | 'localhost' | Host name (or IP address) of MySQL server  | 
