@@ -3,13 +3,13 @@ Ansible AUTOMYSQLBACKUP ![ansible-Automysqlbackup](https://img.shields.io/badge/
 
 ## Role description
 
-This role install and configure Automysqlbackup.
+This role installs and configure Automysqlbackup.
 
 ## Requirements
 
   - mysql-server || mariadb-server
 
-## Dependancies
+## Dependencies
 
 None
 
@@ -33,7 +33,7 @@ TAG | DESCRIPTION |EXAMPLES
 ## Variables
 
 ### Configuration
-| Variables |  Type  | Default |  Descriptions |
+| Variables |  Types  | Default |  Descriptions |
 |---|---|---|---|
 | automysqlbackup_mysql_dump_username |  str  | 'root' | Username to access the MySQL server |
 | automysqlbackup_mysql_dump_password |  str  | "\`grep password /root/.automysqlbackup.cnf \| awk '{print $2}'\`" | Password to access the MySQL server<br />Clear text in the conf ! |
@@ -81,7 +81,7 @@ TAG | DESCRIPTION |EXAMPLES
 | automysqlbackup_umask |  int  | UNDEFINED | umask |
 
 ### Installation
-| Variables |  Type  | Default |  Descriptions |
+| Variables |  Types  | Default |  Descriptions |
 |---|---|---|---|
 | automysqlbackup_install_url |  str  | 'http://downloads.sourceforge.net/project/automysqlbackup/AutoMySQLBackup/{{ automysqlbackup_url_path_version }}' | Install link |
 | automysqlbackup_url_path_version |  str  | 'AutoMySQLBackup%20VER%203.0' | Install links' version | 
