@@ -93,7 +93,7 @@ CONFIG_db_exclude={{ automysqlbackup_db_exclude }}
 # However we only offer the wildcard '*', matching everything that could appear, which translates to the
 # '%' wildcard in mysql.
 {% if automysqlbackup_table_exclude is defined %}
-CONFIG_table_exclude="{{ automysqlbackup_table_exclude }}"
+CONFIG_table_exclude={{ automysqlbackup_table_exclude }}
 {% endif %}
 
 # Advanced Settings
